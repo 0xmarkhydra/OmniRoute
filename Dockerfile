@@ -396,3 +396,8 @@ RUN --mount=type=cache,id=s/92ca8a61-c1ba-421f-a389-d48ac7258c2d-npm-cache,targe
     openclaw@2026.9.1
 
 USER node
+
+# Railway builds the final Docker stage by default. Use the browser-equipped
+# runtime for ChatGPT Web Clean Room; explicit runner-base/web/cli targets
+# for existing Compose or CI deployments remain unchanged.
+FROM runner-web AS runner-railway
